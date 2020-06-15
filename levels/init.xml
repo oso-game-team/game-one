@@ -35,6 +35,7 @@ should be relative to.-->
 		<dependency>etc/standardTemplates.xml</dependency>
 		<dependency>etc/sfx.xml</dependency>
 		<dependency>rooms/firstRoom.xml</dependency>
+		<dependency>rooms/secondRoom.xml</dependency>
 	</dependencies>
 
 	
