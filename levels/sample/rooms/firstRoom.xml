@@ -38,6 +38,7 @@ is entered for the first time. -->
 	
 	<!-- an item to be found in a chest, nothing special about it-->
 	<asset name='item1' type='graphic'>objects/items/item1.png</asset>
+	<asset name='door' type='graphic'>objects/sprites/door_closed.png</asset>
 </assets>
 
 <!-- We create the sprite for this item outside of everything else
@@ -65,22 +66,37 @@ safe than sorry.-->
 
 		<triggers>
   			<trigger>
-			  <args>spriteProperty,char,x>1240</args>
-				<action command='deltaSprite'>
-					<args>char,-12,0</args>
-	  				<action command='changeRoomRemote'>rooms/secondRoom.xml,Room02,60,400</action>
-				</action>
+				<args>spriteProperty,char,x>1240</args>
+	  			<action command='changeRoomRemote'>rooms/secondRoom.xml,Room02,60,400</action>
+	  		</trigger>
+
+			<trigger>
+				<args>spriteProperty,char,y&lt;150</args>
+	  			<action command='changeRoomRemote'>rooms/thirdRoom.xml,Room03,940,625</action>
 	  		</trigger>
   		</triggers>
 
-		<character class='posty' x='285' y='400'>
+		<character class='posty' name ='posty' x='285' y='400'>
 			<action class='bePosty'/>
 		</character>
 
-		<character class='rr' x='627' y='275'>
+		<character class='rr' name = 'rr' x='627' y='275'>
 			<action class='weatherTalk'/>
 			<action class='roomTalk'/>
 			<action class='thirdTalk'/>
+			<action name='Test option.' command='try'>
+				<args>
+					<trigger>
+						<args>gameState,gotKey=true</args>
+						<action command='talk'>
+							<args>
+								@rr_smirktalk Wait! You've got the key right there! Go ahead and unlock the door!
+								@posty_neutraltalk Oh! Okay.
+							</args>
+						</action>
+					</trigger>
+				</args>
+			</action>
 		</character>
 
 		<!-- here we're adding a standard chest based on a template class found in
@@ -92,6 +108,23 @@ safe than sorry.-->
 					</args>
 				</action>
 			</sprite>
+
+		<sprite name='door' x = '936' y = '90' width = '155' height ='120' collidable = 'true'>
+			<animation sheet='door' x='-73' y='-50'/>
+			<action name='Open.' command ='try'>
+				<args>
+					<trigger>
+						<args>gameState,gotKey=true</args>
+						<action command='removeSprite'>
+							<args>door, Room01</args>
+							<action command='playSound'>
+								<args>openSound</args>
+							</action>
+						</action>
+					</trigger>
+				</args>
+			</action>
+		</sprite>
 		
 		<!-- here we're adding in our BG and FG. This is the second half of our 
 		optimization. To avoid creating a dozen sprites for every single tile, we

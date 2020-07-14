@@ -17,7 +17,7 @@ is entered for the first time. -->
 	<asset name='Room02_2_1' type='graphic'>backgrounds/slices/Room02_2_1.png</asset>
 
 	<asset name='Room02Map' type='graphic'>backgrounds/Room02Map.png</asset>
-	<!--asset name='key' type='graphic'>objects/items/object02.png</asset-->
+	<asset name='key' type='graphic'>objects/items/object02.png</asset>
 </assets>
 
 
@@ -27,11 +27,32 @@ safe than sorry.-->
 <rooms>
 	<room name='Room02' walkableMap='Room02Map' scale='4'>
 
+		<!-- Basic format for how room changing works.
+		The argument of the <trigger> tag has to be a lambda expression basically that defines
+		a range of positions that will cause the trigger to activate, thereby triggering the
+		changeRoomRemote command. -->
 		<triggers>
   			<trigger>spriteProperty,char,x&lt;40
 	  			<action command='changeRoomRemote'>rooms/firstRoom.xml,Room01,1200,400</action>
 	  		</trigger>
   		</triggers>
+
+		<sprite name = 'key' x='627' y='210' height = '50' width = '140' collidable = 'true'>
+			<animation sheet='key' x='-77' y='-30'/>
+			<!-- The formatting of these actions is as follows:
+			The Pick up. action is on the highest level and given a name so it appears in-menu.
+			If this option is selected, the key is removed from the map and a flag is set.-->
+			
+			<action command='removeSprite' name='Pick up.'>
+				<args>key, Room02</args>
+				<action command='playSound' noDelay='true'>
+					<args>openSound</args>
+					<action command='setGameState'>
+						<args>gotKey,true</args>
+					</action>
+				</action>
+			</action>
+		</sprite>
 		
 		<!-- here we're adding in our BG and FG. This is the second half of our 
 		optimization. To avoid creating a dozen sprites for every single tile, we
