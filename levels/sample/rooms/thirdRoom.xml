@@ -25,7 +25,16 @@ not good practice to keep multiple rooms in one file, but hey, better
 safe than sorry.-->
 <rooms>
 	<room name='Room03' walkableMap='Room03Map' scale='4'>
-		
+		<triggers>
+  			<trigger>spriteProperty,char,y>690
+	  			<action command='changeRoomRemote'>rooms/firstRoom.xml,Room01,940,180</action>
+	  		</trigger>
+
+			<trigger>spriteProperty,char,y&lt;45
+	  			<action command='changeRoomRemote'>rooms/fourthRoom.xml,Room04,285,675</action>
+	  		</trigger>
+  		</triggers>
+
 		<!-- here we're adding in our BG and FG. This is the second half of our 
 		optimization. To avoid creating a dozen sprites for every single tile, we
 		specify that this image has been sliced up into tiles. Then we just specify

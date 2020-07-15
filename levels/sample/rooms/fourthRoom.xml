@@ -1,0 +1,32 @@
+<!-- This file describes the fourth room. This is meant to be the ending of the prototype. -->
+<sburb description="fourth room">
+
+<dependencies>
+	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
+</dependencies>
+
+<assets>
+	<asset name='Room04_0_0' type='graphic'>backgrounds/slices/Room04_0_0.png</asset>
+	<asset name='Room04_0_1' type='graphic'>backgrounds/slices/Room04_0_1.png</asset>
+	<asset name='Room04_1_0' type='graphic'>backgrounds/slices/Room04_1_0.png</asset>
+	<asset name='Room04_1_1' type='graphic'>backgrounds/slices/Room04_1_1.png</asset>
+	<asset name='Room04_2_0' type='graphic'>backgrounds/slices/Room04_2_0.png</asset>
+	<asset name='Room04_2_1' type='graphic'>backgrounds/slices/Room04_2_1.png</asset>
+
+	<asset name='Room04Map' type='graphic'>backgrounds/Room04Map.png</asset>
+</assets>
+
+<rooms>
+	<room name='Room04' walkableMap='Room04Map' scale='4'>
+		<triggers>
+  			<trigger>spriteProperty,char,y>700
+	  			<action command='changeRoomRemote'>rooms/thirdRoom.xml,Room03,285,65</action>
+	  		</trigger>
+  		</triggers>
+
+		<sprite name='Room04BG'>
+			<animation sheet='Room04' sliced='true' numCols='3' numRows='2' colSize='500' rowSize='500'/>
+		</sprite>
+	</room>
+</rooms>
+</sburb>
