@@ -1,0 +1,55 @@
+<!-- This is a fairly standard "character" file. Here we describe everything
+a character entails, including their specification, common actions, dialogsprites
+and even their music. Often this is used to also link in their actual conversations. -->
+<sburb description='gr'>
+
+<classes>
+	<!-- default values for all this character's dailog sprites -->
+	<animation class='gr-dialog' frameInterval='6' x='-180' y='-524'/>
+	
+	<!-- The description of this character (see usage in rooms/firstRoom.xml). 
+	Characters use a single sprite sheet to describe eight different animations, 
+	and therefore need a lot of parameters to properly describe themselves.
+	Characters are by default depth='1' (in the midground). -->
+	<character class='gr' name='gr' sx='-50' sy='-115' sWidth='100' sHeight='130' width='100' height='25' sheet='grSheet' state='idleFront' facing='Front'>
+		
+	</character>
+	
+	<action class='basicTalk' name='Ask for help.' command='talk'>
+		<args>
+			@posty_neutraltalk Hey, how's it going?
+			@gr_idle ...
+			@gr_sadtalk OK, I guess.
+			@posty_neutraltalk Hey, can you help me out? I don't think that blue guy will let me through. Maybe you'll be able to convince him to move out of the way.
+            @gr_sadtalk Oh...I don't know...I'm pretty nervous.
+            @posty_neutraltalk Don't worry, you got this! You just gotta believe!
+            @gr_idle ...
+            @gr_happytalk Yeah, you're right. I can do this.
+			@! You can now switch to Green Rectangle.
+            @! At least you can after you program this, FUNNYBOY. Gosh, you're lazy!
+		</args>
+	</action>
+</classes>
+
+<assets>
+	<!-- the sprite sheet containing all their animations -->
+	<asset name='grSheet' type='graphic'>chars/gr/gr.png</asset>
+
+    	<!-- her background music -->
+	<asset name='grSong' type='audio'>audio/music/Chillmusic.oga;audio/music/Chillmusic.mp3</asset> <!-- loops to 0 -->
+
+	<!-- their dialog sprites -->
+	<asset name='gr_idle' type='graphic'>dialogs/gr/gr_idle.png</asset>
+	<asset name='gr_happytalk' type='graphic'>dialogs/gr/gr_happytalk.png</asset>
+	<asset name='gr_sadtalk' type='graphic'>dialogs/gr/gr_sadtalk.png</asset>
+</assets>
+
+<hud>
+	<!-- this is the actual place where the dialog sprites get registered -->
+	<dialogsprites>	
+		<animation name='gr_idle' class='gr-dialog' sheet='gr_idle'/>
+		<animation name='gr_happytalk' class='gr-dialog' sheet='gr_happytalk' length='2'/>
+		<animation name='gr_sadtalk' class='gr-dialog' sheet='gr_sadtalk' length='2'/>
+	</dialogsprites>
+</hud>
+</sburb>

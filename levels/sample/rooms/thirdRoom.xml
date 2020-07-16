@@ -6,6 +6,7 @@ is entered for the first time. -->
 
 <dependencies>
 	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
+	<dependency>chars/gr.xml</dependency> <!-- and now gr!-->
 </dependencies>
 
 <assets>
@@ -35,6 +36,20 @@ safe than sorry.-->
 	  		</trigger>
   		</triggers>
 
+		<character class='gr' name = 'gr' x='1090' y='225'>
+			<action class='basicTalk'/>
+			<action name='Be Green Rectangle.' command='macro'>
+				<args>
+					<action command='changeChar' noDelay='true'>
+					<args>gr</args>
+					<action command='playSong' noDelay='true'>
+						<args>grSong,0</args>
+				</action>
+			</action>
+		</args>
+	</action>
+			
+		</character>
 		<!-- here we're adding in our BG and FG. This is the second half of our 
 		optimization. To avoid creating a dozen sprites for every single tile, we
 		specify that this image has been sliced up into tiles. Then we just specify

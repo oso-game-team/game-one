@@ -3,6 +3,7 @@
 
 <dependencies>
 	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
+	<dependency>chars/gr.xml</dependency> <!-- and now gr!-->
 </dependencies>
 
 <assets>
@@ -20,7 +21,7 @@
 	<room name='Room04' walkableMap='Room04Map' scale='4'>
 		<triggers>
   			<trigger>spriteProperty,char,y>700
-	  			<action command='changeRoomRemote'>rooms/thirdRoom.xml,Room03,285,65</action>
+	  			<action command='changeRoomRemote'>rooms/thirdRoom.xml,Room03,260,120</action>
 	  		</trigger>
   		</triggers>
 

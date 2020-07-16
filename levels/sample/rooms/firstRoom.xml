@@ -9,6 +9,7 @@ is entered for the first time. -->
 	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
 	<!--dependency>chars/karkat.xml</dependency--> <!-- and karkat -->
 	<dependency>chars/rr.xml</dependency> <!-- and now rr!-->
+	<dependency>chars/gr.xml</dependency> <!-- and now gr!-->
 </dependencies>
 <!-- quick test?-->
 <assets>
