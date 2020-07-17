@@ -7,6 +7,7 @@ is entered for the first time. -->
 <dependencies>
 	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
 	<dependency>chars/gr.xml</dependency> <!-- and now gr!-->
+	<dependency>chars/br.xml</dependency> <!-- and now br!-->
 </dependencies>
 
 <assets>
@@ -36,7 +37,11 @@ safe than sorry.-->
 	  		</trigger>
   		</triggers>
 
-		<character class='gr' name = 'gr' x='1090' y='225'>
+		<character class='br' name = 'br' x='450' y='400'>
+			<action class='moveTalk'/>
+		</character>
+
+				<character class='gr' name = 'gr' x='1090' y='225'>
 			<action class='basicTalk'/>
 			<action name='Be Green Rectangle.' command='macro'>
 				<args>
@@ -44,6 +49,32 @@ safe than sorry.-->
 					<args>gr</args>
 					<action command='playSong' noDelay='true'>
 						<args>grSong,0</args>
+						<action command='removeAction'>
+										<args>br, Ask him to move.</args>
+										<action command='addActions'>
+											<args>br,
+												<action name='Ask if he can move.' command='talk'>
+													<args>
+														@gr_sadtalk He-hello?
+														@br_neutraltalk Yo dawg! 
+														@gr_idle ...
+														@gr_sadtalk Y'know, I once won an "Epic Fight Sisters" tournament and got $300 for a prize.
+														@br_neutraltalk Woah, that's lowkey pretty dope.
+														@gr_happytalk Oh really?
+														@br_neutraltalk Yeah, dudette. You sound like you got some swag!
+														@gr_happytalk Wow, thank you! Hey, could you please move out of the way for my friend Posty? She's cool too.
+														@br_neutraltalk Fo' shizzle, dawg!
+													</args>
+												<action command='moveSprite'>
+														<args>br,160,400</args>
+												<action command='removeAction'>
+														<args>br, Ask if he can move.</args>
+												</action>
+												</action>
+												</action>
+											</args>
+						</action> 
+					</action>
 				</action>
 			</action>
 		</args>

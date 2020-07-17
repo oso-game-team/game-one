@@ -1,0 +1,50 @@
+<!-- This is a fairly standard "character" file. Here we describe everything
+a character entails, including their specification, common actions, dialogsprites
+and even their music. Often this is used to also link in their actual conversations. -->
+<sburb description='br'>
+
+<classes>
+	<!-- default values for all this character's dailog sprites -->
+	<animation class='br-dialog' frameInterval='6' x='-180' y='-524'/>
+	
+	<!-- The description of this character (see usage in rooms/firstRoom.xml). 
+	Characters use a single sprite sheet to describe eight different animations, 
+	and therefore need a lot of parameters to properly describe themselves.
+	Characters are by default depth='1' (in the midground). -->
+	<character class='br' name='br' sx='-50' sy='-115' sWidth='100' sHeight='130' width='100' height='25' sheet='brSheet' state='idleRight' facing='Right'>
+		
+	</character>
+	
+	<action class='moveTalk' name='Ask him to move.' command='talk'>
+		<args>
+            @br_idle ...
+			@posty_neutraltalk Ummmmm...hi?
+            @br_neutraltalk Yo diggity dawg! Whazzup?
+            @posty_neutraltalk I'm OK, thanks.
+            @br_neutraltalk Poggers.
+            @posty_neutraltalk Hey, do you think you could move out of the way? I need to get into the next room.
+            @br_neutraltalk Nah, bro. Only the lit and radical make it past me. No offense.
+            @posty_neutraltalk None taken. But can you make an exception at least once?
+            @br_neutraltalk  Sorry. Maybe if you got someone else to convince me to move, I would. But until then, hang loose.
+		</args>
+    </action>
+    	
+</classes>
+
+<assets>
+	<!-- the sprite sheet containing all their animations -->
+	<asset name='brSheet' type='graphic'>chars/br/br.png</asset>
+
+	<!-- their dialog sprites -->
+	<asset name='br_idle' type='graphic'>dialogs/br/br_idle.png</asset>
+	<asset name='br_neutraltalk' type='graphic'>dialogs/br/br_neutraltalk.png</asset>
+</assets>
+
+<hud>
+	<!-- this is the actual place where the dialog sprites get registered -->
+	<dialogsprites>	
+		<animation name='br_idle' class='br-dialog' sheet='br_idle'/>
+		<animation name='br_neutraltalk' class='br-dialog' sheet='br_neutraltalk' length='2'/>
+	</dialogsprites>
+</hud>
+</sburb>

@@ -22,7 +22,10 @@ and even their music. Often this is used to also link in their actual conversati
 				<args>posty</args>
 				<action command='playSong' noDelay='true'>
 					<args>postySong,0</args>
+				<action command='removeAction'>
+					<args>br, Ask if he can move.</args>
 				</action>
+			</action>
 			</action>
 		</args>
 	</action>

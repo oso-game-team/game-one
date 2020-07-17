@@ -3,7 +3,6 @@
 
 <dependencies>
 	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
-	<dependency>chars/gr.xml</dependency> <!-- and now gr!-->
 </dependencies>
 
 <assets>

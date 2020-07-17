@@ -38,9 +38,9 @@ and even their music. Often this is used to also link in their actual conversati
 	</action>
 	<action class='thirdTalk' name='Third dialog option.' command='talk'>
 		<args>
-			@posty_neutral This is a placeholder text.
+			@posty_neutraltalk This is a placeholder text.
 			@rr_angrytalk What's that supposed to mean?
-			@posty_neutral Oh, uh nothing.
+			@posty_neutraltalk Oh, uh nothing.
 			@rr_idle ...
 			@rr_smirktalk Alright, whatever you say.
 		</args>
