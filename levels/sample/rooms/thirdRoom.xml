@@ -28,12 +28,30 @@ safe than sorry.-->
 <rooms>
 	<room name='Room03' walkableMap='Room03Map' scale='4'>
 		<triggers>
-  			<trigger>spriteProperty,char,y>690
+  			<trigger>spriteProperty,posty,y>690
 	  			<action command='changeRoomRemote'>rooms/firstRoom.xml,Room01,940,180</action>
 	  		</trigger>
 
-			<trigger>spriteProperty,char,y&lt;45
+			<trigger>spriteProperty,posty,y&lt;45
 	  			<action command='changeRoomRemote'>rooms/fourthRoom.xml,Room04,285,675</action>
+	  		</trigger>
+
+			<trigger>spriteProperty,gr,y>690
+				<action command='deltaSprite'>
+					<args>char,0,-12</args>
+					<action command='talk'>
+						@! You can't leave this room as this character!
+					</action>
+				</action>
+	  		</trigger>
+
+			<trigger>spriteProperty,gr,y&lt;45
+	  			<action command='deltaSprite'>
+					<args>char,0,12</args>
+					<action command='talk'>
+						@! You can't leave this room as this character!
+					</action>
+				</action>
 	  		</trigger>
   		</triggers>
 
@@ -41,45 +59,44 @@ safe than sorry.-->
 			<action class='moveTalk'/>
 		</character>
 
-				<character class='gr' name = 'gr' x='1090' y='225'>
+		<character class='gr' name = 'gr' x='1090' y='225'>
 			<action class='basicTalk'/>
 			<action name='Be Green Rectangle.' command='macro'>
 				<args>
 					<action command='changeChar' noDelay='true'>
-					<args>gr</args>
-					<action command='playSong' noDelay='true'>
-						<args>grSong,0</args>
-						<action command='removeAction'>
-										<args>br, Ask him to move.</args>
-										<action command='addActions'>
-											<args>br,
-												<action name='Ask if he can move.' command='talk'>
-													<args>
-														@gr_sadtalk He-hello?
-														@br_neutraltalk Yo dawg! 
-														@gr_idle ...
-														@gr_sadtalk Y'know, I once won an "Epic Fight Sisters" tournament and got $300 for a prize.
-														@br_neutraltalk Woah, that's lowkey pretty dope.
-														@gr_happytalk Oh really?
-														@br_neutraltalk Yeah, dudette. You sound like you got some swag!
-														@gr_happytalk Wow, thank you! Hey, could you please move out of the way for my friend Posty? She's cool too.
-														@br_neutraltalk Fo' shizzle, dawg!
-													</args>
-												<action command='moveSprite'>
-														<args>br,160,400</args>
-												<action command='removeAction'>
-														<args>br, Ask if he can move.</args>
-												</action>
-												</action>
-												</action>
+						<args>gr</args>
+						<action command='playSong' noDelay='true'>
+							<args>grSong,0</args>
+							<action command='removeAction'>
+								<args>br, Ask him to move.</args>
+								<action command='addActions'>
+									<args>br,
+										<action name='Ask if he can move.' command='talk'>
+											<args>
+												@gr_sadtalk He-hello?
+												@br_neutraltalk Yo dawg! 
+												@gr_idle ...
+												@gr_sadtalk Y'know, I once won an "Epic Fight Sisters" tournament and got $300 for a prize.
+												@br_neutraltalk Woah, that's lowkey pretty dope.
+												@gr_happytalk Oh really?
+												@br_neutraltalk Yeah, dudette. You sound like you got some swag!
+												@gr_happytalk Wow, thank you! Hey, could you please move out of the way for my friend Posty? She's cool too.
+												@br_neutraltalk Fo' shizzle, dawg!
 											</args>
-						</action> 
+											<action command='moveSprite'>
+												<args>br,160,400</args>
+												<action command='removeAction'>
+													<args>br, Ask if he can move.</args>
+												</action>
+											</action>
+										</action>
+									</args>
+								</action> 
+							</action>
+						</action>
 					</action>
-				</action>
+				</args>
 			</action>
-		</args>
-	</action>
-			
 		</character>
 		<!-- here we're adding in our BG and FG. This is the second half of our 
 		optimization. To avoid creating a dozen sprites for every single tile, we

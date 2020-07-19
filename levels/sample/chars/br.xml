@@ -11,7 +11,7 @@ and even their music. Often this is used to also link in their actual conversati
 	Characters use a single sprite sheet to describe eight different animations, 
 	and therefore need a lot of parameters to properly describe themselves.
 	Characters are by default depth='1' (in the midground). -->
-	<character class='br' name='br' sx='-50' sy='-115' sWidth='100' sHeight='130' width='100' height='25' sheet='brSheet' state='idleRight' facing='Right'>
+	<character class='br' name='br' sx='-50' sy='-115' sWidth='100' sHeight='130' width='100' height='200' sheet='brSheet' state='idleRight' facing='Right'>
 		
 	</character>
 	
